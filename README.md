@@ -8,7 +8,7 @@ This project started as a simple app to test the Firebase Auth API using the ema
 ![Reset Password](screens/reset.png)
 
 ## Getting Started
-Link to be published soon.
+Site hosted on [Netlify](https://dreamy-marigold-41a0c2.netlify.app)
 
 ## Technologies Used: 
 * [Firebase](https://firebase.google.com/) - The backend platform used
