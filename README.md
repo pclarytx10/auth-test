@@ -29,3 +29,8 @@ Site hosted on [Netlify](https://dreamy-marigold-41a0c2.netlify.app)
       - [x] Display Name
       - [x] Change Password
     - [x] Delete Account
+
+### Future Features:
+- [ ] Additional Providers
+  - [ ] Google
+  - [ ] Facebook
