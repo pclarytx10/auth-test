@@ -1,11 +1,15 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import { updateFbProfile, updateFbEmail, deleteAccount } from "../firebase";
+import { updateFbProfile, 
+        updateFbEmail, 
+        deleteAccount, 
+        updateFbPassword, logOut } from "../firebase";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 const Home = ({ user }) => {
     const navigate = useNavigate();
+    const [newPassword, setNewPassword] = useState("");
 
     // empty user object
     const formUser = {
@@ -60,9 +64,29 @@ const Home = ({ user }) => {
             // console.log(error)
             toast.error('Error Updating Account');
         }
-        navigate('/');
+        // logOut();
+        navigate('/')
     }
 
+    const handleNewPassword = (event) => {
+        setNewPassword(event.target.value);
+    };
+
+    const updatePassword = async (e) => {
+        e.preventDefault();
+        try {
+            await updateFbPassword(currentUser, newPassword).then(() => {
+                // Update successful.
+                toast.success('Password Updated')
+                logOut();
+                navigate('/login');
+                })
+        } catch (error) {
+            // console.log(error)
+            toast.error('Error Updating Password');
+        }
+    }
+            
     const delAccount = async () => {
         await deleteAccount();
         navigate('/login');
@@ -110,7 +134,24 @@ const Home = ({ user }) => {
                         type="button"
                         className='btn btn-success'
                         onClick={updateProfile}
-                        ><span className="bi bi-archive"></span>&nbsp;Update Profile</button>
+                        ><span className="bi bi-archive"></span>&nbsp;Update Profile
+                    </button>
+                </form>
+                <form className="updateForm" >
+                    <span>
+                        <label htmlFor="newPassword">New Password: </label>
+                        <input 
+                            type="password" 
+                            name="newPassword" 
+                            value={newPassword}
+                            onChange={handleNewPassword} />
+                    </span>
+                    <button
+                        type="button"
+                        className='btn btn-success'
+                        onClick={updatePassword}
+                        ><span className="bi bi-arrow-clockwise"></span>&nbsp;Set Password
+                    </button>
                 </form>
             </div>
             <div className="delDiv">
@@ -119,8 +160,8 @@ const Home = ({ user }) => {
                     type="button"
                     className='btn btn-danger' 
                     onClick={delAccount}>
-                    <span className="bi-trash"></span>&nbsp;Delete Account</button>
-
+                    <span className="bi-trash"></span>&nbsp;Delete Account
+                </button>
             </div>
             <ToastContainer />
             </>

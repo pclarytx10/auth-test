@@ -7,7 +7,9 @@ import { getAuth,
     signOut, 
     updateProfile,
     deleteUser, 
-    updateEmail} from "firebase/auth";
+    updateEmail,
+    updatePassword,
+    sendPasswordResetEmail} from "firebase/auth";
 const firebaseConfig = {
     apiKey: "AIzaSyAFwm5pKsuCsRjr1XD3TEf4smp5-Gkz0Vk",
     authDomain: "cascadesocial-35fae.firebaseapp.com",
@@ -71,6 +73,30 @@ export function updateFbEmail(email) {
         // console.log(error)
         return error
     }
+}
+
+// update password
+export function updateFbPassword(user, newPassword) {
+    try {
+        return updatePassword(user, newPassword).then(() => {
+        // Update successful.
+        console.log('Update successful.')
+        })
+    } catch (error) {
+        // An error occurred.
+        return error
+    }
+}
+
+// send password reset email
+export function sendFbResetEmail(email) {
+    return sendPasswordResetEmail(authentication, email).then(() => {
+        // Email sent.
+        console.log('Email sent.')
+        }).catch((error) => {
+        // An error ocurred
+        console.log(error)
+    });
 }
 
 // delete account

@@ -5,6 +5,7 @@ import {
     Routes, 
     Route, 
     useNavigate} from 'react-router-dom';
+import Reset from '../pages/Reset';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { logIn, register } from '../firebase';
@@ -86,6 +87,11 @@ const Main = ({ user , setUser}) => {
                   handleAction={() => handleAction("register")}
                 />
               } 
+            />
+            <Route path='/reset' 
+                element={<Reset
+                    title="Reset Password"
+                />} 
             />
           </Routes>
           <ToastContainer />
