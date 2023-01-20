@@ -1,6 +1,13 @@
 // import firebase from "firebase";
 import { initializeApp } from "firebase/app";
-
+//firebase email auth dependencies
+import { getAuth, 
+    signInWithEmailAndPassword, 
+    createUserWithEmailAndPassword, 
+    signOut, 
+    updateProfile,
+    deleteUser, 
+    updateEmail} from "firebase/auth";
 const firebaseConfig = {
     apiKey: "AIzaSyAFwm5pKsuCsRjr1XD3TEf4smp5-Gkz0Vk",
     authDomain: "cascadesocial-35fae.firebaseapp.com",
@@ -13,10 +20,70 @@ const firebaseConfig = {
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 
-// Initialize auth
-// const fbauth = firebase.auth();
-// const db = firebase.firestore();
+const authentication = getAuth(app);
 
-// export auth and db
+// signin
+export function logIn(email, password) {
+    return signInWithEmailAndPassword(authentication, email, password)
+}
 
+// register
+export function register(email, password) {
+    return createUserWithEmailAndPassword(authentication, email, password)
+}
+
+// logout
+export function logOut() {
+    return signOut(authentication).then(() => {
+        // Sign-out successful.
+        // console.log('Sign-out successful.')
+        }).catch((error) => {
+        // An error happened.
+        console.log(error)
+    });
+}
+
+// update display name
+export function updateFbProfile(displayName, email) {
+    try {
+        return updateProfile(authentication.currentUser, {
+            displayName: displayName, 
+        }).then(() => {
+            // Update successful.
+            console.log('Update successful.')
+        })
+    } catch (error) {
+        // An error occurred.
+        // console.log(error)
+        return error
+    }
+}
+
+// update email
+export function updateFbEmail(email) {
+    try {
+        return updateEmail(authentication.currentUser, email).then(() => {
+        // Update successful.
+        console.log('Update successful.')
+        })
+    } catch (error) {
+        // An error occurred.
+        // console.log(error)
+        return error
+    }
+}
+
+// delete account
+export function deleteAccount() {
+    return deleteUser(authentication.currentUser).then(() => {
+        // User deleted.
+        console.log('User deleted.')
+        }).catch((error) => {
+        // An error ocurred
+        console.log(error)
+    });
+}
+
+// export app
+export default app
 

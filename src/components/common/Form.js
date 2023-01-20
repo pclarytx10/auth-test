@@ -1,6 +1,4 @@
 import * as React from 'react';
-import Box from '@mui/material/Box';
-import TextField from '@mui/material/TextField';
 import Button from './Button';
 
 export default function BasicTextFields({title, setPassword, setEmail, handleAction}) {
@@ -10,31 +8,22 @@ export default function BasicTextFields({title, setPassword, setEmail, handleAct
                 <h3>
                     {title} Form
                 </h3>
+                    <div className='loginForm'>
+                        <span>
+                            <label htmlFor="email">Email: </label>
+                            <input type="text" id="email" name="email" 
+                                onChange={(e) => setEmail(e.target.value)}/>
+                        </span>
+                        <span>
+                            <label htmlFor="password">Password: </label>
+                            <input type="password" id='password' name="password"
+                                onChange={(e) => setPassword(e.target.value)}/>
+                        </span>
+                        
+                    </div>
+    
+                    <Button title={title} handleAction={handleAction} />
             </div>
-            <Box
-                component="form"
-                sx={{
-                    '& > :not(style)': { m: 1, width: '25ch' },
-                }}
-                noValidate
-                autoComplete="off"
-            >
-
-            <TextField
-                id="email"
-                label="Enter Email"
-                variant="outlined"
-                onChange={(e) => setEmail(e.target.value)}
-            />
-            <TextField
-                id="password"
-                label="Enter Password"
-                variant="outlined"
-                onChange={(e) => setPassword(e.target.value)}
-            />
-
-            </Box>
-            <Button title={title} handleAction={handleAction} />
         </div>
     );
 }

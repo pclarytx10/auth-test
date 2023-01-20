@@ -1,20 +1,67 @@
-// .main {
-//   display: flex;
-//   justify-content: center;
+body {
+  background-image: url('https://img.freepik.com/free-vector/white-background-with-triangle-patterns_1017-18410.jpg?w=740&t=st=1674193468~exp=1674194068~hmac=72f64df1cece7d22a741891cdd9a22fef34c51786b0a3596ca6d2a987abc7953');
+  // background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed; 
+  background-size: 100% 100%;
+}
+.App {
+  padding: 5rem;
+}
+h1 {
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+}
+.navbar {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+// .signin {
+//   max-width: 300px;
+//   margin-left: auto;
+//   margin-right: auto;
+//   form {
+//     display: grid;
+//     flex-direction: column;
+//     input {
+//       margin: 10px;
+//     }
+//   }
 // }
-.signin {
-  max-width: 300px;
-  margin-left: auto;
+// .signin_link:hover {
+//   text-decoration: underline; 
+//   color: rgb(0, 94, 236);
+// }
+.loginForm {
+  display: flex;
+  flex-direction: column;;
+  align-items: flex-end;
+  width: 300px;
   margin-right: auto;
-  form {
-    display: grid;
-    flex-direction: column;
-    input {
-      margin: 10px;
-    }
+  margin-left: auto;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  input {
+    margin: 10px;
   }
 }
-.signin_link:hover {
-  text-decoration: underline; 
-  color: rgb(0, 94, 236);
+.updateForm {
+  display: flex;
+  flex-direction: column;;
+  align-items: flex-end;
+  justify-content: space-around;
+  width: 310px;
+  margin-right: auto;
+  margin-left: auto;
+  margin-top: 5px;
+  margin-bottom: 10px;
+  span {
+    margin: 5px;
+  }
+}
+.delDiv {
+  margin: 2rem;
+ color: red;
+ text-decoration: underline;
 }
