@@ -28,12 +28,12 @@ const Nav = (props) => {
     } else {
         return (
             <div className="navbar">
-                <Link to="/login">
+                {/* <Link to="/login">
                     <div>Login</div>
-                </Link>
-                <Link to="/register">
+                </Link> */}
+                {/* <Link to="/register">
                     <div>Register</div>
-                </Link>
+                </Link> */}
             </div>
         );
     }

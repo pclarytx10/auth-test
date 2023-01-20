@@ -79,7 +79,7 @@ const Home = ({ user }) => {
 
         return (
             <>
-            <div>
+            <div className="homePage">
                 {/* <h3>Home Page</h3> */}
                 <h4>
                     Hello {userName}!
@@ -109,6 +109,7 @@ const Home = ({ user }) => {
                     <button
                         type="button"
                         className='btn btn-success'
+                        onClick={updateProfile}
                         ><span className="bi bi-archive"></span>&nbsp;Update Profile</button>
                 </form>
             </div>
@@ -117,7 +118,7 @@ const Home = ({ user }) => {
                 <button
                     type="button"
                     className='btn btn-danger' 
-                onClick={delAccount}>
+                    onClick={delAccount}>
                     <span className="bi-trash"></span>&nbsp;Delete Account</button>
 
             </div>

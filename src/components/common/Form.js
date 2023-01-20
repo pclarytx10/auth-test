@@ -1,10 +1,11 @@
 import * as React from 'react';
+import { Link } from 'react-router-dom';
 import Button from './Button';
 
 export default function BasicTextFields({title, setPassword, setEmail, handleAction}) {
     return (
         <div>
-            <div className="heading-container">
+            <div className="formPage">
                 <h3>
                     {title} Form
                 </h3>
@@ -19,10 +20,10 @@ export default function BasicTextFields({title, setPassword, setEmail, handleAct
                             <input type="password" id='password' name="password"
                                 onChange={(e) => setPassword(e.target.value)}/>
                         </span>
-                        
                     </div>
-    
                     <Button title={title} handleAction={handleAction} />
+                    <p>Need an account? Register <Link to="/register">
+                    here</Link>! Return to <Link to="/login/">Login</Link>.</p>
             </div>
         </div>
     );
