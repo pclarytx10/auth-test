@@ -15,6 +15,7 @@ Site hosted on [Netlify](https://dreamy-marigold-41a0c2.netlify.app)
 * React
 * Bootstrap
 * Javascript
+* Toastify (Alerts)
 
 ### Features:
 - [x] Landing Page
